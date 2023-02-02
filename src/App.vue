@@ -1,7 +1,7 @@
 <template>
-  <main id="app">
+  <div id="app">
     <router-view />
-  </main>
+  </div>
 </template>
 
 <script>
@@ -10,4 +10,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#app {
+  height: 100%;
+}
+</style>

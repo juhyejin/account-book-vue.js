@@ -37,7 +37,6 @@ export default {
   },
   mounted() {
     this.calendarImplementation();
-    console.log(this.today);
   },
   methods: {
     calendarImplementation: function () {
@@ -52,10 +51,12 @@ export default {
       for (let i = 0; i < endDayOfTheMonth + startDayOfTheMonth; i += 7) {
         this.days.push(combinedDays.slice(i, i + 7));
       }
-      this.days.map((x) => {
-        if (x.length !== 7) x.length = 7;
-      });
       this.calendarHeader = `${year}년 ${month + 1} 월`;
+      this.addLastWeekEmptyDays();
+    },
+    addLastWeekEmptyDays: function () {
+      const daysLastIndex = this.days.length - 1;
+      if (this.days[daysLastIndex] !== 7) this.days[daysLastIndex].length = 7;
     },
     changeMonth: function (val) {
       this.today = new Date(this.today.setMonth(this.today.getMonth() + val, 1));
@@ -67,16 +68,18 @@ export default {
 
 <style>
 #calendarSection {
+  height: 100%;
   text-align: center;
   text-align: -webkit-center;
   text-align: -moz-center;
 }
 table {
   width: 100%;
+  height: 100%;
 }
 td {
   width: 40px;
-  height: 50px;
+  height: ;
   text-align: center;
   vertical-align: baseline;
 }

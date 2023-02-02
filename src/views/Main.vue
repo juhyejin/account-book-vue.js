@@ -5,7 +5,7 @@
       <div>지출 : {{ spending }}</div>
       <div>합계 :{{ total }}</div>
     </div>
-    <DatePicker></DatePicker>
+    <DatePicker />
   </section>
 </template>
 
@@ -37,6 +37,10 @@ export default {
 </script>
 
 <style>
+section {
+  height: 100%;
+  overflow: scroll;
+}
 #usageHistoryZone {
   display: flex;
   flex-direction: row;
